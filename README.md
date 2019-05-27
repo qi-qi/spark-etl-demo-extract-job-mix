@@ -1,4 +1,4 @@
-# spark-etl-demo-extract-job-scala
+# spark-etl-demo-extract-job-mix
 - extract and parse daily csv files with mix schema from single source directory (see example csv files from directory: data_raw)
 - Handle the changes of csv schema over time => new columns & columns order shifting
 - Handle missing data issues and gracefully convert to `null` values when => missing values, missing columns, or data values can't be cast to predefined schema
@@ -23,7 +23,7 @@ docker run -it -v $PWD:/repo -w /repo --rm qiqi/sbt:sbt1.2.8_jdk8u212 sbt clean 
 ```
 Packaged jar location:
 ```
-./target/scala-2.11/spark-etl-demo-extract-job-scala-assembly-0.1.jar
+./target/scala-2.11/spark-etl-demo-extract-job-mix-assembly-0.1.jar
 ```
 
 # Expected Command Line Arguments
@@ -38,6 +38,7 @@ Packaged jar location:
 
 # Local Run Example with Spark in Docker
 - Run with spark-submit in local master mode
+    - --master local[*]
 - Spark Docker repo: [qiqi/spark:spark2.4.3_hadoop2.7](https://cloud.docker.com/u/qiqi/repository/docker/qiqi/spark)
     - https://github.com/qi-qi/docker-spark
 ```
@@ -45,7 +46,7 @@ docker run --rm -v $PWD:/work -w /work qiqi/spark:spark2.4.3_hadoop2.7 \
 spark-submit \
 --master local[*] \
 --class cloud.qiqi.Main \
-./target/scala-2.11/spark-etl-demo-extract-job-scala-assembly-0.1.jar \
+./target/scala-2.11/spark-etl-demo-extract-job-mix-assembly-0.1.jar \
 --startDate 2018-07-01 \
 --daysToRun 3 \
 --srcPath ./data_raw \
@@ -53,7 +54,7 @@ spark-submit \
 ```
 Results will be generated in ./data_extract folder. Ex:
 ```
-Qi-MBP13-Acast:spark-etl-demo-extract-job-scala qi$ ll
+Qi-MBP13-Acast:spark-etl-demo-extract-job-mix qi$ ll
 total 16
 -rw-r--r--    1 qi  staff  1978 May 26 21:54 README.md
 -rw-r--r--    1 qi  staff   341 May 26 21:18 build.sbt
@@ -184,3 +185,7 @@ schema
 │   └── part-00000-ff3adf21-76b3-4688-aafe-a5e577c462b0.c000.snappy.parquet
 ...
 ```
+# Todo:
+- change the raw data delivery format and source directory:
+    - ideally, the daily delivery source file should be put into separate directories with date prefix
+    - the format should be changed from raw csv to parquet/orc/avro, or multi-line json in gz

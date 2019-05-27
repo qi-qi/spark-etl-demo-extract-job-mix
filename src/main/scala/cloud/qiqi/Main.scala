@@ -7,7 +7,7 @@ import picocli.CommandLine
 object Main {
   System.setProperty("user.timezone", "UTC")
   private val sparkConf = new SparkConf()
-    .setAppName("spark-etl-demo-extract-job-scala")
+    .setAppName("spark-etl-demo-extract-job-mix")
     .set("spark.sql.sources.partitionOverwriteMode", "dynamic")
     .set("spark.sql.session.timeZone", "UTC")
 

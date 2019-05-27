@@ -1,4 +1,4 @@
-name := "spark-etl-demo-extract-job-scala"
+name := "spark-etl-demo-extract-job-mix"
 
 version := "0.1"
 
