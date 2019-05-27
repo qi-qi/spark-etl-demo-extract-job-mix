@@ -1,0 +1,11 @@
+temperature,skipped_beat,at_risk
+LOW,3.0,0
+HIGH,0.0,1
+LOW,1.0,1
+MEDIUM,0.0,0
+HIGH,2.0,1
+MEDIUM,3.0,0
+MEDIUM,3.0,1
+LOW,1.0,1
+LOW,2.0,1
+HIGH,2.0,0
