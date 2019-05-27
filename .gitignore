@@ -1,0 +1,17 @@
+# Scala
+*.class
+*.log
+
+# SBT
+project/boot/
+project/plugins/project/
+project/project/
+project/target/
+target/
+
+# JetBrains
+.idea/
+*.iml
+
+# Mac OS
+.DS_Store
