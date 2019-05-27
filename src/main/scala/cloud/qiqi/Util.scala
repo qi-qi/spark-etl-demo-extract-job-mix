@@ -14,7 +14,7 @@ object Util {
     df.withColumn("event_date", lit(Date.valueOf(eventDate)))
   }
 
-  // if source column type not match with schema or column not exist => null
+  // if source column type does not match with schema or columns not exist => null
   def parseSchema(schema: Map[String, DataType])(df: DataFrame): DataFrame = {
     schema.keys.foldLeft(df) {
       (tempDf: DataFrame, colName: String) =>
