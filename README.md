@@ -185,7 +185,7 @@ schema
 │   └── part-00000-ff3adf21-76b3-4688-aafe-a5e577c462b0.c000.snappy.parquet
 ...
 ```
-# Todo:
+# Comments:
 - change the raw data delivery format and source directory:
     - ideally, the daily delivery source file should be put into separate directories with date prefix
     - the format should be changed from raw csv to parquet/orc/avro, or multi-line json in gz
